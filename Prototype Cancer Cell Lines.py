@@ -3,10 +3,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-apopcand = pd.read_csv('Apo_Mutations.tar.gz', error_bad_lines=False)
-print(apopcand(head())
-apopcand.to_csv('apopcand.csv')
-apopcand['mutation_ccle_cosmic'] = apopcand['mutation_ccle_cosmic'].apply(lambda x:x.split('')[0])
 
 #reading the csv files with pandas and checking data
 achilles=pd.read_csv('Achilles_v2.4_SampleInfo_small.csv')
