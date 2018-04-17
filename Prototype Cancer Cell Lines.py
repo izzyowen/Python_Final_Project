@@ -30,6 +30,6 @@ merged3=match_column.to_csv('merged.csv')
 
 #generating list of apoptotic genes
 apoptotic_genes= pandas.read_csv("", header=0)
-genes = list(apoptotic_genes. #titles of column)
+genes = list(apoptotic_genes.Genes)
 
 #Parsing apoptotic gene list from KRAS gene dependency csv
