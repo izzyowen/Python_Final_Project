@@ -31,3 +31,25 @@ solamente.head()
 trunc=solamente.truncate(before='Name', after='Type', axis=1)
 trunc.shape
 trunc.head()
+
+#merge Dataframes based on KRas mutants and drop 'Line' column
+match_column=trunc.merge(gene_dependency, how='inner', left_on='Name', right_on='line')
+match_column.drop(['line'], axis=1, inplace=True)
+match_column.shape
+match_column.head()
+
+#remove Entrez gene number from gene names in column headers
+match_column.rename(columns=lambda x: x.split(' ')[0], inplace=True)
+match_column['Name']=match_column['Name'].apply(lambda x: x.split('_')[0])
+match_column.drop(['Type'], axis=1, inplace=True)
+match_column.head()
+
+#generating list of apoptotic genes
+apoptotic_genes=pd.read_csv('mutation_ccle_cosmic', sep='\s+', names=['Gene', 'UniProt', 'Cancer', 'CDS Mutation', 'AA Mutation', 'Database'], header=None)
+apoptotic_genes.head()
+apoptotic_genes.shape
+    #remove duplicate copies of gene names
+apo_genes2=apoptotic_genes.drop_duplicates(subset='Gene')
+apo_genes2.head()
+    #generate list of genes from 'Gene' column
+genes=list(apo_genes2.Gene)
