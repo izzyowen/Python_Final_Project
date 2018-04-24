@@ -45,7 +45,7 @@ match_column.drop(['Type'], axis=1, inplace=True)
 match_column.head()
 
 #generating list of apoptotic genes
-apoptotic_genes=pd.read_csv('mutation_ccle_cosmic', sep='\s+', names=['Gene', 'UniProt', 'Cancer', 'CDS Mutation', 'AA Mutation', 'Database'], header=None)
+apoptotic_genes=pd.read_csv('mutation_ccle_cosmic.csv', sep='\s+', names=['Gene', 'UniProt', 'Cancer', 'CDS Mutation', 'AA Mutation', 'Database'], header=None)
 apoptotic_genes.head()
 apoptotic_genes.shape
     #remove duplicate copies of gene names
