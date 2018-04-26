@@ -1,7 +1,7 @@
 #!
 #Python Final Project
 #Assessing Gene Dependency of Apoptotic Genes in KRAS Mutant Cancers
-#By: Owen, Izzy, Izadjoo, Salman, Hussain, Imran, Gierlack, Steven, Bauman, Bradly
+#By: Owen, Izzy; Izadjoo, Salman; Hussain, Imran; Gierlack, Steven; Bauman, Bradly
 
 #import all the relevant packages
 import pandas as pd
@@ -53,3 +53,25 @@ apo_genes2=apoptotic_genes.drop_duplicates(subset='Gene')
 apo_genes2.head()
     #generate list of genes from 'Gene' column
 genes=list(apo_genes2.Gene)
+
+#parsing apoptotic gene list from KRAS mutant gene dependency data
+match_column.index=match_column.Name
+match_column.head()
+dependency_sort=match_column[match_column.columns.intersection(genes)]
+dependency_sort.head()
+dependency_sort.shape
+
+#create heatmap
+caliente=sns.heatmap(dependency_sort, cmap='Blues_r', robust=True, linewidths=.000001, xticklabels=True)
+
+for label in caliente.get_yticklabels():
+    label.set_size(3)
+    label.set_color("black")
+
+for label in caliente.get_xticklabels():
+    label.set_size(3)
+    label.set_color("black")
+    label.set_rotation(90)
+
+plt.savefig('Caliente.png', dpi=1200, bbox_inches='tight')
+plt.show
