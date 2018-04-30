@@ -6,3 +6,6 @@ In the pursuit of personalized medicine, large-scale studies are being performed
 One such project is called Project Achilles, a project of The Broad Institute of MIT and Harvard (https://portals.broadinstitute.org/achilles). From their website:
 > Project Achilles is a systematic effort aimed at identifying and cataloging gene essentiality across hundreds of genomically characterized cancer cell lines. The project uses genome-scale RNAi and CRISPR-Cas9 genetic perturbation reagents to silence or knockout individual genes and identify those genes that affect cell survival. By linking these genetic dependencies to the genetic or molecular features of the tumors, this project is providing the foundation for a "Cancer Dependency Map" (https://depmap.org).
 
+As such, we sought to generate a code that would allow one to sort through cancer lines by mutation type, and then examine the dependency of these lines for the expression of specific genes. As a demonstration, we examined KRAS mutant cancer lines for their dependency on apoptotic genes.
+
+**File List:**
