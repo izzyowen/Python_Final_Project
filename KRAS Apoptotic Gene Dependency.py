@@ -62,16 +62,22 @@ dependency_sort.head()
 dependency_sort.shape
 
 #create heatmap
-caliente=sns.heatmap(dependency_sort, cmap='Blues_r', robust=True, linewidths=.000001, xticklabels=True)
+caliente=sns.heatmap(dependency_sort, vmin=0, vmax=1, cmap='Blues', robust=True, linewidths=.000001, xticklabels=True, yticklabels=True)
 
 for label in caliente.get_yticklabels():
-    label.set_size(3)
+    label.set_size(4)
     label.set_color("black")
 
 for label in caliente.get_xticklabels():
-    label.set_size(3)
+    label.set_size(4)
     label.set_color("black")
     label.set_rotation(90)
 
 plt.savefig('Caliente.png', dpi=1200, bbox_inches='tight')
-plt.show
+plt.show()
+
+#create clustermap
+spicy=sns.clustermap(dependency_sort, cmap ='mako', vmin=0, vmax=1)
+
+plt.savefig('spicy.png', dpi=1200)
+plt.show()
